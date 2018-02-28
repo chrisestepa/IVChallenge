@@ -9,26 +9,24 @@ export class DatabaseService {
   userList: Observable<any[]>;
 
   constructor(public router: Router, private db: AngularFirestore) {
-    // this.userList = this.db.collection('users').valueChanges();
     this.userList = this.db.collection('users').snapshotChanges()
-    .map(changes => {
-      return changes.map(change => {
-        const data = change.payload.doc.data();
-        data.id = change.payload.doc.id;
-        return data;
-      })
-    });
+      .map(changes => {
+        return changes.map(change => {
+          const data = change.payload.doc.data();
+          data.id = change.payload.doc.id;
+          return data;
+        })
+      });
   }
 
   getUserList() {
     return this.userList;
   }
 
-  addNewUser(userId, name, email) {
+  addNewUser(name, lastName) {
     const newUser = {
-      userId: userId,
       name: name,
-      email: email
+      lastName: lastName,
     }
 
     this.db.collection('users').add(newUser)
@@ -39,9 +37,11 @@ export class DatabaseService {
       .catch(err => console.log(err));
   }
 
-  deleteUser(id){
+  deleteUser(id) {
     const userToDelete = this.db.doc(`users/${id}`);
-    userToDelete.delete();
+
+    userToDelete.delete()
+      .then(deleted => console.log('Usuario eliminado correctamente!'));
   }
 
 }

@@ -9,9 +9,8 @@ import { DatabaseService } from '../services/database.service';
 })
 export class NewUserComponent implements OnInit {
   formInfo = {
-    userId:"",
     name:"",
-    email:"",
+    lastName:"",
   }
 
   message: string = '';
@@ -22,10 +21,10 @@ export class NewUserComponent implements OnInit {
   }
 
   newUser(){
-  const { userId, name, email } = this.formInfo;
+  const { name, lastName } = this.formInfo;
 
-  if(userId != "" && name != "" && email != "") {
-    this.dbService.addNewUser(userId, name, email)
+  if(name != "" && lastName != "") {
+    this.dbService.addNewUser(name, lastName)
   } else {
     this.message = "Todos los campos son obligatorios."
   }
