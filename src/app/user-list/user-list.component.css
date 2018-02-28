@@ -17,8 +17,13 @@ th {
   color: white;
 }
 
+.delete {
+  color: #D04E46;
+}
+
 .delete:hover {
-  color: red;
+  color: #FE8A83;
+  cursor: pointer;
 }
 
 .title {
@@ -33,6 +38,7 @@ th {
 button {
   text-align: center;
   height: 40px;
+  margin: 10px;
   background: #A9A5E8;
   color: white;
   font-size: 15px;

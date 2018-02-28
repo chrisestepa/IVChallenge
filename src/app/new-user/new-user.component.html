@@ -1,16 +1,19 @@
-<h2>Nuevo usuario</h2>
+<h2 class="title">Nuevo usuario</h2>
 <div>
-  <div>
-    <label>Nombre:</label>
-    <input type="text" [(ngModel)]="formInfo.name" name="name" />
+  <div class="form">
+    <div>
+      <label>Nombre</label>
+      <input type="text" [(ngModel)]="formInfo.name" name="name" />
+    </div>
     <br>
-    <label>Apellidos:</label>
+    <label>Apellidos</label>
     <input type="text" [(ngModel)]="formInfo.lastName" name="lastName" />
     <br>
   </div>
   <br>
   <div class="button">
     <button (click)="newUser()">Crear usuario</button>
+    <br>
     <a [routerLink]="['/userlist']">Volver al listado</a>
   </div>
   <p>{{message}}</p>

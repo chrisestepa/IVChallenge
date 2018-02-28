@@ -1,0 +1,43 @@
+.form {
+    width: 35%;
+    margin: 40px auto;
+    font-size: 20px;
+}
+
+label {
+  width: 40%;
+  color: #48435C;
+  text-align: left;
+}
+
+input {
+  padding: 0 15px;
+  width: 60%;
+  height: 30px;
+  font-size: 20px;
+  color: #A9A5E8;
+  border: 1px solid #48435C;
+}
+
+.title {
+  text-align: center;
+  color: #48435C;
+}
+
+.button {
+  text-align: center;
+}
+
+button {
+  text-align: center;
+  height: 40px;
+  background: #A9A5E8;
+  color: white;
+  font-size: 15px;
+  margin: 10px;
+}
+
+button:hover {
+  background: #BCB9ED;
+  color: white;
+}
