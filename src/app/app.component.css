@@ -1,0 +1,16 @@
+body {
+  text-align: center;
+  font-family: Helvetica;
+  color: #48435C;
+  margin: 0;
+}
+
+.main-title {
+  background: #BCB9ED;
+  height: 100px;
+  line-height: 100px;
+}
+
+.main {
+  margin-top: 50px;
+}

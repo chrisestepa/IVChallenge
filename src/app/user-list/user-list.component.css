@@ -1,0 +1,44 @@
+table {
+    border-collapse: collapse;
+    /* width: 50%; */
+    margin: 40px auto;
+    color: #48435C;
+}
+
+table, td, th {
+    border: 1px solid black;
+    height: 25px;
+    width: 35%;
+    text-align: center;
+}
+
+th {
+  background: #9792E3;
+  color: white;
+}
+
+.delete:hover {
+  color: red;
+}
+
+.title {
+  text-align: center;
+  color: #48435C;
+}
+
+.button {
+  text-align: center;
+}
+
+button {
+  text-align: center;
+  height: 40px;
+  background: #A9A5E8;
+  color: white;
+  font-size: 15px;
+}
+
+button:hover {
+  background: #BCB9ED;
+  color: white;
+}

@@ -1,15 +1,19 @@
-<h1>Listado de usuarios: </h1>
-<table style="width: 35%" border="1">
-  <tr>
-    <th style="padding: 5px; text-align: center">Nombre</th>
-    <th style="padding: 5px; text-align: center">Apellidos</th>
-    <th style="padding: 5px; text-align: center">Borrar usuario</th>
-  </tr>
-  <tr *ngFor="let user of userList | async">
-    <td style="padding: 5px">{{ user.name }}</td>
-    <td style="padding: 5px">{{ user.lastName }}</td>
-    <td style="padding: 5px"><a (click)="delete($event, user.id)">Eliminar</a></td>
-  </tr>
-</table>
+<h2 class="title">Listado de usuarios</h2>
+<div class="container">
+  <table class="table">
+    <tr>
+      <th style="padding: 5px; text-align: center">Nombre</th>
+      <th style="padding: 5px; text-align: center">Apellidos</th>
+      <th style="padding: 5px; text-align: center">Borrar usuario</th>
+    </tr>
+    <tr *ngFor="let user of userList | async">
+      <td style="padding: 5px">{{ user.name }}</td>
+      <td style="padding: 5px">{{ user.lastName }}</td>
+      <td style="padding: 5px"><a (click)="delete($event, user.id)" class="delete">Eliminar</a></td>
+    </tr>
+  </table>
+</div>
 <br>
-<button [routerLink]="['/newuser']">Nuevo usuario</button>
+<div class="button">
+  <button [routerLink]="['/newuser']">Nuevo usuario</button>
+</div>
