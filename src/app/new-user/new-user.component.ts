@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { DatabaseService } from '../services/database.service';
+
+// Este componente se encarga de mostrar el formulario que permitirá
+// la creación de nuevos usuarios
 
 @Component({
   selector: 'app-new-user',
@@ -15,13 +17,17 @@ export class NewUserComponent implements OnInit {
 
   message: string = '';
 
-  constructor(private dbService: DatabaseService, public router: Router) { }
+  constructor(private dbService: DatabaseService) { }
 
   ngOnInit() {
   }
 
   newUser(){
+  // Se recogen los datos del formulario
   const { name, lastName } = this.formInfo;
+
+  // Si alguno de los campos no ha sido introducido, aparece un mensaje de error
+  // de lo contrario, se realiza la llamada al servicio para crear el usuario nuevos
 
   if(name != "" && lastName != "") {
     this.dbService.addNewUser(name, lastName)
