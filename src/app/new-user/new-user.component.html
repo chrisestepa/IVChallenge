@@ -10,11 +10,11 @@
     <input type="text" [(ngModel)]="formInfo.lastName" name="lastName" />
     <br>
   </div>
+  <p>{{message}}</p>
   <br>
   <div class="button">
     <button (click)="newUser()">Crear usuario</button>
     <br>
     <a [routerLink]="['/userlist']">Volver al listado</a>
   </div>
-  <p>{{message}}</p>
 </div>
