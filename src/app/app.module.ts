@@ -4,6 +4,9 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { routes } from './routes';
 
 import { AppComponent } from './app.component';
 import { UserListComponent } from './user-list/user-list.component';
@@ -22,7 +25,9 @@ import { DatabaseService } from './services/database.service';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    RouterModule.forRoot(routes),
+    FormsModule
   ],
   providers: [DatabaseService],
   bootstrap: [AppComponent]

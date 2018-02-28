@@ -1,3 +1,19 @@
-<p>
-  new-user works!
-</p>
+<h2>Nuevo usuario</h2>
+<div>
+  <div>
+    <label>Nombre de usuario:</label>
+    <input type="text" [(ngModel)]="formInfo.userId" name="userId" />
+    <br>
+    <label>Nombre y apellidos:</label>
+    <input type="text" [(ngModel)]="formInfo.name" name="name" />
+    <br>
+    <label>Email:</label>
+    <input type="mail" [(ngModel)]="formInfo.email" name="email" />
+    <br>
+  </div>
+  <div class="button">
+    <button (click)="newUser()">Crear usuario</button>
+    <a [routerLink]="['/userlist']">Volver al listado</a>
+  </div>
+  <p>{{message}}</p>
+</div>
