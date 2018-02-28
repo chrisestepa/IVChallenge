@@ -9,12 +9,11 @@ import { Observable } from 'rxjs/Observable';
 })
 export class UserListComponent implements OnInit {
 
-  list: Observable<any[]>;
+  userList: Observable<any[]>;
 
   constructor(private db: AngularFirestore) { }
   ngOnInit() {
-    this.list = this.db.collection('/users').valueChanges();
-    console.log(this.list);
+    this.userList = this.db.collection('/users').valueChanges();
   }
 
 }

@@ -3,7 +3,9 @@
 </p>
 
 <ul>
-  <li *ngFor="let item of list | async">
-    {{ item.name }}
+  <li *ngFor="let user of userList | async">
+    {{ user.userID }}
+    {{ user.name }}
+    {{ user.email }}
   </li>
 </ul>
