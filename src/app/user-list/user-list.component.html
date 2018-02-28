@@ -1,7 +1,5 @@
-<p>
-  user-list works!
-</p>
-
+<h1>Listado: </h1>
+<br>
 <ul>
   <li *ngFor="let user of userList | async">
     {{ user.userID }}
@@ -9,3 +7,5 @@
     {{ user.email }}
   </li>
 </ul>
+<br>
+<button [routerLink]="['/newuser']">Nuevo usuario</button>
