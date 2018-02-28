@@ -18,4 +18,8 @@ export class UserListComponent implements OnInit {
     this.userList = this.dbService.getUserList();
   }
 
+  delete(event, id) {
+    this.dbService.deleteUser(id);
+  }
+
 }

@@ -1,17 +1,30 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class DatabaseService {
 
-  constructor(public router: Router, private db: AngularFirestore) { }
+  userList: Observable<any[]>;
 
-  getUserList(){
-    return this.db.collection('/users').valueChanges();
+  constructor(public router: Router, private db: AngularFirestore) {
+    // this.userList = this.db.collection('users').valueChanges();
+    this.userList = this.db.collection('users').snapshotChanges()
+    .map(changes => {
+      return changes.map(change => {
+        const data = change.payload.doc.data();
+        data.id = change.payload.doc.id;
+        return data;
+      })
+    });
   }
 
-  addNewUser(userId, name, email){
+  getUserList() {
+    return this.userList;
+  }
+
+  addNewUser(userId, name, email) {
     const newUser = {
       userId: userId,
       name: name,
@@ -19,11 +32,16 @@ export class DatabaseService {
     }
 
     this.db.collection('users').add(newUser)
-    .then(user => {
-      console.log('Usuario añadido correctamente!')
-      this.router.navigate(['/userlist']);
-    })
-    .catch(err => console.log(err));
+      .then(user => {
+        console.log('Usuario añadido correctamente!')
+        this.router.navigate(['/userlist']);
+      })
+      .catch(err => console.log(err));
+  }
+
+  deleteUser(id){
+    const userToDelete = this.db.doc(`users/${id}`);
+    userToDelete.delete();
   }
 
 }
